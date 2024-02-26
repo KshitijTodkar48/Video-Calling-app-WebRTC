@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { RtmChannel, RtmClient, createChannel, createClient } from 'agora-rtm-react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Mic, Phone, Video } from 'lucide-react';
+import { Mic, MicOff, Phone, Video, VideoOff } from 'lucide-react';
 
 export const Room = () => {
     let localStream:MediaStream;
@@ -12,6 +12,12 @@ export const Room = () => {
 
     const localVideoRef = useRef<HTMLVideoElement>(null);
     const remoteVideoRef = useRef<HTMLVideoElement>(null);
+
+    const cameraOnRef = useRef<HTMLDivElement>(null);
+    const cameraOffRef = useRef<HTMLDivElement>(null);
+
+    const micOnRef = useRef<HTMLDivElement>(null);
+    const micOffRef = useRef<HTMLDivElement>(null);
     
     const { roomId } = useParams();
     const navigate = useNavigate();
@@ -162,6 +168,31 @@ export const Room = () => {
         }
       }
     }
+
+    const toggleCamera = () => {
+      let videoTrack = localStream.getTracks().find(track => track.kind === 'video');
+  
+      if (videoTrack) {
+        videoTrack.enabled = !videoTrack.enabled;
+        if (cameraOffRef.current && cameraOnRef.current) {
+          cameraOffRef.current.style.display = videoTrack.enabled ? 'none' : 'block';
+          cameraOnRef.current.style.display = videoTrack.enabled ? 'block' : 'none';
+        }
+      }
+    }
+
+    const toggleMic = () => {
+      let audioTrack = localStream.getTracks().find(track => track.kind === 'audio');
+  
+      if (audioTrack) {
+        audioTrack.enabled = !audioTrack.enabled;
+        if (micOffRef.current && micOnRef.current) {
+          micOffRef.current.style.display = audioTrack.enabled ? 'none' : 'block';
+          micOnRef.current.style.display = audioTrack.enabled ? 'block' : 'none';
+        }
+      }
+    }
+
     return(
         <div className="room">
             <div id="videos">
@@ -173,11 +204,13 @@ export const Room = () => {
                 </div>
             </div>
             <div id="buttons">
-                <div>
-                    <Video color='white' size={40}/>
+                <div onClick={ toggleCamera }>
+                    <div ref={cameraOnRef} ><Video color='white' size={40} /></div> 
+                    <div ref={cameraOffRef} style={{"display":"none"}} ><VideoOff color='white' size={40} /></div>
                 </div>
-                <div>
-                    <Mic color='white' size={40}/>
+                <div onClick={ toggleMic }>
+                    <div ref={micOnRef}><Mic color='white' size={40}/></div>
+                    <div ref={micOffRef} style={{"display":"none"}} ><MicOff color='white' size={40}/></div>
                 </div>
                 <div onClick={() => { leaveChannel().then(() => { navigate('/'); })}}>
                     <Phone color='red' size={40}/>
