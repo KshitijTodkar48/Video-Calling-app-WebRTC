@@ -14,7 +14,7 @@ export const Lobby = () => {
     return(
         <div className="lobby">
             <div className="card">
-                <span> Create or Join a Room 👋🏻🎦 </span>
+                <span> 👋🏻 Create or Join a Room 🎦 </span>
                 <form id="join-form" onSubmit={ handleFormSubmit }>
                     <input 
                         type="text" 

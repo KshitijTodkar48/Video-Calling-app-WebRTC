@@ -54,17 +54,6 @@
   background-color: rgb(80, 80, 80);
 }
 
-@media screen and (max-width:600px) {
-  .smallFrame{
-      height: 80px;
-      width: 120px;
-  }
-  
-  #buttons{
-    gap: 1em;
-  }
-}
-
 .lobby {
   height: 100vh;
   background-color: #1a1a1a;
@@ -118,4 +107,39 @@
 
 #join-form > button:hover {
   background-color: rgb(34, 115, 165);
+}
+
+@media screen and (max-width:600px) {
+  .smallFrame{
+      height: 80px;
+      width: 120px;
+  }
+
+  #buttons{
+    gap: 1em;
+  }
+
+  .card{
+    padding: 15px 30px;
+    gap: 10px;
+    margin: 25px;
+  }
+
+  .card > span {
+    font-size: 15px;
+  }
+
+  #join-form{
+    gap: 10px;
+  }
+
+  #join-form > input{
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+
+  #join-form > button{
+    padding: 5px;
+    font-size: 15px;
+  }
 }
