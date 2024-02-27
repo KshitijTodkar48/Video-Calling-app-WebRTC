@@ -11,14 +11,19 @@ export const Lobby = () => {
         navigate(`/room/${roomId}`);
     }
     return(
-        <form id="join-form" onSubmit={ handleFormSubmit }>
-            <input 
-             type="text" 
-             required 
-             placeholder="Enter room ID"
-             onChange={(e) => { setRoomId(e.target.value); }}
-            />
-            <button type="submit"> Join Room</button>
-        </form>
+        <div className="lobby">
+            <div className="card">
+                <span> Create or Join a Room 👋🏻🎦 </span>
+                <form id="join-form" onSubmit={ handleFormSubmit }>
+                    <input 
+                        type="text" 
+                        required 
+                        placeholder="Enter room ID"
+                        onChange={(e) => { setRoomId(e.target.value); }}
+                    />
+                    <button type="submit"> Join Room</button>
+                </form>
+            </div>
+        </div>
     )
 }

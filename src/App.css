@@ -1,37 +1,50 @@
-.room {
-  height: 95vh;
-  display: flex;
-  flex-direction: column;
-  gap: 4em;
-  justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #videos {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2em;
-  margin: 10px 50px;
+  grid-template-columns: 1fr;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .video-player {
   background-color: black;
   width: 100%;
-  height: 400px;
-  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
 }
 
 #user-2 {
   display: none;
 }
 
+.smallFrame {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  height: 170px;
+  width: 300px;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
+  box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
+  z-index: 999;
+}
+
 #buttons {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
   gap: 2em;
 }
 
 #buttons > div {
-  background-color: black;
+  background-color:black;
   border-radius: 50%;
   padding: 15px 15px 12px 15px;
   cursor: pointer;
@@ -39,4 +52,66 @@
 
 #buttons > div:hover {
   background-color: rgb(80, 80, 80);
+}
+
+@media screen and (max-width:600px) {
+  .smallFrame{
+      height: 80px;
+      width: 120px;
+  }
+}
+
+.lobby {
+  height: 100vh;
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: #4f545d;
+  border-radius: 5px;
+  padding: 40px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card > span {
+  font-size: 25px;
+}
+
+#join-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#join-form > input {
+  box-sizing: border-box;
+  color: white;
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  padding: 16px 20px;
+  font-size: 20px;
+  background-color: #373a3f;
+}
+
+#join-form > button {
+  background-color: rgb(40, 137, 198);
+  border: none;
+  padding: 8px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+#join-form > button:hover {
+  background-color: rgb(34, 115, 165);
 }

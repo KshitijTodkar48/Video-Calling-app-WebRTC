@@ -34,6 +34,14 @@ export const Room = () => {
       const useClient = createClient(appId);
       const useChannel = createChannel(roomId);
 
+      const constraints = {
+        video: {
+          width: {min: 640, ideal: 1920, max: 1920},
+          height: {min: 480, ideal: 1080, max: 1080}
+        },
+        audio: true
+      }
+
       const init = async () => {
         client = useClient();
         channel = useChannel(client);
@@ -50,7 +58,7 @@ export const Room = () => {
         channel.on("MemberLeft", handleUserLeft);
   
         try {
-          localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+          localStream = await navigator.mediaDevices.getUserMedia(constraints);
           if(localVideoRef.current){
             localVideoRef.current.srcObject = localStream;
           }
@@ -104,6 +112,10 @@ export const Room = () => {
       if(remoteVideoRef.current)
       {
         remoteVideoRef.current.style.display = 'none';
+        if(localVideoRef.current)
+        {
+          localVideoRef.current.classList.remove('smallFrame');
+        }
       }
     }
   
@@ -121,6 +133,10 @@ export const Room = () => {
       if(remoteVideoRef.current){
         remoteVideoRef.current.srcObject = remoteStream;
         remoteVideoRef.current.style.display = 'block';
+        if(localVideoRef.current)
+        {
+          localVideoRef.current.classList.add('smallFrame');
+        }
       }
   
       localStream.getTracks().forEach(track => {
@@ -196,12 +212,8 @@ export const Room = () => {
     return(
         <div className="room">
             <div id="videos">
-                <div>
-                    <video className="video-player" id="user-1" ref={localVideoRef} autoPlay playsInline></video>
-                </div>
-                <div>
-                    <video className="video-player" id="user-2" ref={remoteVideoRef} autoPlay playsInline></video>
-                </div>
+              <video className="video-player" id="user-1" ref={localVideoRef} autoPlay playsInline></video>
+              <video className="video-player" id="user-2" ref={remoteVideoRef} autoPlay playsInline></video>
             </div>
             <div id="buttons">
                 <div onClick={ toggleCamera }>
