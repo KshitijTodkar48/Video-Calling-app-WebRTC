@@ -59,6 +59,10 @@
       height: 80px;
       width: 120px;
   }
+  
+  #buttons{
+    gap: 1em;
+  }
 }
 
 .lobby {

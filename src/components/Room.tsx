@@ -80,7 +80,6 @@ export const Room = () => {
     }, []);
   
     const handleUserJoin = async (MemberId: string) => {
-      console.log("A new user joined the channel: ", MemberId);
       createOffer(MemberId);
     }
   
@@ -96,10 +95,8 @@ export const Room = () => {
       }
   
       if (message.type === 'candidate') {
-        console.log("Candidates received.");
         if (peerConnection) {
           try {
-            console.log("Candidates added.");
             await peerConnection.addIceCandidate(message.candidate);
           } catch (error) {
             console.log('Error adding ICE candidate: ', error);
@@ -150,9 +147,7 @@ export const Room = () => {
       }
   
       peerConnection.onicecandidate = async (event) => {
-        console.log("On ice candidate");
         if (event.candidate) {
-          console.log("Sending candidates");
           await client.sendMessageToPeer({ text: JSON.stringify({ type: 'candidate', 'candidate': event.candidate }) }, MemberId);
         }
       }
@@ -162,7 +157,6 @@ export const Room = () => {
       createPeerConnection(MemberId);
       const offer = await peerConnection.createOffer();
       await peerConnection.setLocalDescription(offer);
-      console.log("Offer sent!");
       await client.sendMessageToPeer({ text: JSON.stringify({ type: 'offer', 'offer': offer }) }, MemberId);
     }
   
@@ -177,7 +171,6 @@ export const Room = () => {
     const addAnswer = async (answer: any) => {
       if (peerConnection && !peerConnection.currentRemoteDescription) {
         try {
-          console.log("Adding answer: ", answer);
           await peerConnection.setRemoteDescription(answer);
         } catch (error) {
           console.log('Error setting remote description: ', error);

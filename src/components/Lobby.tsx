@@ -8,7 +8,8 @@ export const Lobby = () => {
 
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        navigate(`/room/${roomId}`);
+        const parsedRoomId = roomId.replace(/\s/g, '');
+        navigate(`/room/${parsedRoomId}`);
     }
     return(
         <div className="lobby">
