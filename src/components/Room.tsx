@@ -136,7 +136,7 @@ export const Room = () => {
         }
       }
   
-      localStream.getTracks().forEach(track => {
+      localStream?.getTracks().forEach(track => {
         peerConnection.addTrack(track, localStream);
       });
   
