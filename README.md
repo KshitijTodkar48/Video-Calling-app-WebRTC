@@ -1,16 +1,20 @@
 # ⭐ Introduction
 
-## A peer-to-peer video calling web application allowing two users to seamlessly create or join a virtual room and engage in video conversations right from their web browsers.
+### A peer-to-peer video calling web application allowing two users to seamlessly create or join a virtual room and engage in video conversations right from their web browsers.
 
 
 
 # 🔧 Tech-Stack
 
-## 💻 𝗥𝗲𝗮𝗰𝘁.𝗷𝘀: for building a dynamic and interactive user interface.
+### 💻 𝗥𝗲𝗮𝗰𝘁.𝗷𝘀: 
+for building a dynamic and interactive user interface.
 
-## 🌐 𝗧𝘆𝗽𝗲𝗦𝗰𝗿𝗶𝗽𝘁: for ensuring robust type checking and improved code maintainability.
+### 🌐 𝗧𝘆𝗽𝗲𝗦𝗰𝗿𝗶𝗽𝘁: 
+for ensuring robust type checking and improved code maintainability.
 
-## ⚙ 𝗦𝗶𝗴𝗻𝗮𝗹𝗶𝗻𝗴 𝗦𝗗𝗞 𝗯𝘆 𝗔𝗴𝗼𝗿𝗮: for facilitating signaling & real-time metadata synchronization.
+### ⚙ 𝗦𝗶𝗴𝗻𝗮𝗹𝗶𝗻𝗴 𝗦𝗗𝗞 𝗯𝘆 𝗔𝗴𝗼𝗿𝗮: 
+for facilitating signaling & real-time metadata synchronization.
+
 
 
 # ▶️ Preview
