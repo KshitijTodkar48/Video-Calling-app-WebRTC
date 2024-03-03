@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# ⭐ Introduction
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## A peer-to-peer video calling web application allowing two users to seamlessly create or join a virtual room and engage in video conversations right from their web browsers.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+# 🔧 Tech-Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 💻 𝗥𝗲𝗮𝗰𝘁.𝗷𝘀: for building a dynamic and interactive user interface.
 
-- Configure the top-level `parserOptions` property like this:
+## 🌐 𝗧𝘆𝗽𝗲𝗦𝗰𝗿𝗶𝗽𝘁: for ensuring robust type checking and improved code maintainability.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## ⚙ 𝗦𝗶𝗴𝗻𝗮𝗹𝗶𝗻𝗴 𝗦𝗗𝗞 𝗯𝘆 𝗔𝗴𝗼𝗿𝗮: for facilitating signaling & real-time metadata synchronization.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+# ▶️ Preview
+
+
+
+https://github.com/KshitijTodkar48/Video-Calling-app-WebRTC/assets/120639775/d67e8926-75cb-4ec0-8864-a537690a41b0
+
